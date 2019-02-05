@@ -33,7 +33,7 @@
  
  1. docker local the next steps
   - npm run build or ng build --prod
-  - docker image build -t pokedexangular .
-  - docker run -p 3000:80 --rm pokedexangular
+  - docker image build -t market .
+  - docker run -p 3000:80 --rm market
  
-this step two is reference create and generate container name pokedexAngular. Third step is run localhost machine is port 3000 example localhost:3000
+this step two is reference create and generate container name market. Third step is run localhost machine is port 3000 example localhost:3000

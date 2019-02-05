@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '../../../../node_modules/@angular/router';
 import { Product } from 'src/app/shared/models/products.model';
 import { ProductService } from 'src/app/shared/services/products.service';
