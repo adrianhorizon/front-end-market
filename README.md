@@ -4,8 +4,8 @@
  La base de datos esta en mongo atlas con una instancia de AWS free
 
 # Back end
- 1. descargar el segundo repositorio `wiissy-server` para poder usar [wiissy-server](https://bitbucket.org/adrianhorizon/wiissy-server/src/master/)
- 2. instalar dependencias `wiissy-server` npm install
+ 1. descargar el segundo repositorio `back-end-market` para poder usar [back-end-market](https://github.com/adrianhorizon/back-end-market)
+ 2. instalar dependencias `back-end-market` npm install
  3. npm start la ruta de nuestros endpoints o servicios o Apis `localhost://3000/api/(etc)`
 
 # Front end
