@@ -1,0 +1,16 @@
+<div class="side-main">
+  <div class="container-cart">
+    <h3 class="title-style">Tu carro tiene {{products.length}} productos</h3>
+    <ul>
+      <li *ngFor="let product of products">
+        <h4 class="name-style">{{product.name}} <small class="price-style">{{product.price}}</small></h4>
+      </li>
+      <li>
+        <h4 class="total-style">Subtotal: {{totalValue | currency:'COP':'symbol-narrow' }}</h4>
+      </li>
+    </ul>
+    <div>
+      <button mat-raised-button class="button" [routerLink]="['/products/checkout']">Continuar</button>
+    </div>
+  </div>
+</div>

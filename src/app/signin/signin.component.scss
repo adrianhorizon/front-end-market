@@ -1,0 +1,95 @@
+@import '../../../src/sass/variables';
+@import '../../../src/sass/mixins';
+
+.login-view {
+  @media screen and (min-width: $layout-xs) and (orientation: landscape) {
+    @include login-container;
+    width: 40%;
+  }
+
+  mat-card {
+    @include login-container;
+    width: 80%;
+  }
+
+  .header-image {
+    @include signin-logo;
+  }
+
+  .button-div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  mat-form-field {
+    margin-bottom: 8px;
+    color: $colorPrimary;
+    font-weight: 400;
+  }
+
+  mat-form-field:nth-child(1) {
+    margin-top: 24px;
+  }
+
+  .button-register {
+    margin-top: 10px;
+    margin-bottom: 24px;
+    color: #ffffff;
+    background-color: $colorPrimary;
+    padding: 10px 0 10px 0;
+
+    &:hover {
+      background-color: $blueWarn;
+      color: #ffffff;
+    }
+  }
+
+  .button-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .text-link {
+    color: $colorWrey;
+    font-size: 13px;
+   }
+
+  .link-text {
+    text-decoration: none;
+    font-size: 13px;
+    color: $blueWarn;
+
+    &:hover {
+      color: $hover_link;
+    }
+
+    &:active {
+      color: $hover_active;
+    }
+
+    &:link {
+      color: $blueGradients;
+    }
+  }
+
+  .link-text:nth-child(2) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .error-message {
+    font-size: 10px;
+    color: $D;
+  }
+
+  form {
+    @include form-responsive;
+  }
+
+
+}

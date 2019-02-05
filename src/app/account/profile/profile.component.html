@@ -1,0 +1,54 @@
+<div class="profile-view">
+<div class="section group">
+  <div class="col span_1_of_2">
+    <app-profile-side-bar></app-profile-side-bar>
+  </div>
+  <div class="col span_1_of_2">
+    <mat-card>
+      <mat-card-content>
+        <form>
+          <p>
+            <mat-form-field class="input-form" appearance="legacy" floatLabel="always">
+              <mat-label class="text-title">Nombres y apellidos</mat-label>
+              <input class="width-input" matInput placeholder="Tu nombre" value="{{ name }}">
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="input-form" appearance="legacy" floatLabel="always">
+              <mat-label class="text-title">Usuario</mat-label>
+              <input class="width-input" matInput placeholder="tu nickname" value="{{ user }}">
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="input-form" appearance="legacy" floatLabel="always">
+              <mat-label class="text-title">Correo Electrónico</mat-label>
+              <input class="width-input" matInput placeholder="tucorreo@correo.com" disabled value="{{ email }}">
+              <i class="profile-set fas fa-lock"></i>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="input-form" appearance="legacy" floatLabel="always">
+              <mat-label class="text-title">Celular</mat-label>
+              <input class="width-input" matInput placeholder="tu whats app" value="{{ phone }}" disabled>
+              <i class="profile-set fas fa-lock "></i>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="input-form" appearance="legacy" floatLabel="always">
+              <mat-label class="text-title">Fecha de nacimiento</mat-label>
+              <input class="width-input" matInput [matDatepicker]="picker" [formControl]="date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker touchUi #picker></mat-datepicker>
+            </mat-form-field>
+          </p>
+          <div class="button-div input-form button-row">
+            <button type="submit" mat-button class="profile-button">Actualizar datos</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+</div>
+
+<app-footer></app-footer>

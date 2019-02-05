@@ -1,0 +1,74 @@
+<mat-progress-bar *ngIf="productProcess" mode="indeterminate"></mat-progress-bar>
+<div mat-dialog-content class="product-view">
+  <mat-card class="product-panel-xs">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" novalidate>
+
+      <div class="form-container">
+        <mat-form-field class="separated-product" appearance="outline">
+          <mat-label>Cantidad</mat-label>
+          <input matInput placeholder="3" formControlName="quantity" required>
+          <mat-error class="error-message" *ngIf="productForm.invalid">{{getErrorMessage()}} Cantidad del producto</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="separated-product" appearance="outline">
+          <mat-label>Precio del producto</mat-label>
+          <input currencyMask matInput placeholder="$ 2.000" formControlName="price" required [options]="{ prefix: '$ ', thousands: ',', decimal: ',', precision: 0, align: 'left' }" #currency>
+          <mat-error class="error-message" *ngIf="productForm.invalid">{{getErrorMessage()}} Precio del producto</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-container">
+        <mat-form-field class="separated-product" appearance="outline">
+          <mat-label>Disponibilidad del producto</mat-label>
+          <mat-select placeholder="true o false" formControlName="available" required>
+              <mat-option value="true">Disponible</mat-option>
+              <mat-option value="false">No disponible</mat-option>
+          </mat-select>
+          <mat-error class="error-message" *ngIf="productForm.invalid">{{getErrorMessage()}} Disponibilidad del
+            producto</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="separated-product" appearance="outline">
+          <mat-label>Estrellas del producto</mat-label>
+          <mat-select placeholder="Select" formControlName="stars" required>
+            <mat-option value="1">1</mat-option>
+            <mat-option value="2">2</mat-option>
+            <mat-option value="3">3</mat-option>
+            <mat-option value="4">4</mat-option>
+            <mat-option value="4">5</mat-option>
+          </mat-select>
+          <mat-error class="error-message" *ngIf="productForm.invalid">{{getErrorMessage()}} Estrellas del producto</mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field class="form-view-validate" appearance="outline">
+        <mat-label>Categoria del producto</mat-label>
+        <input matInput placeholder="1..." formControlName="subLevel_id" required>
+        <mat-error class="error-message" *ngIf="productForm.invalid">{{getErrorMessage()}} Categoria del producto</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-view-validate" appearance="outline">
+        <mat-label>Nombre del producto</mat-label>
+        <input matInput placeholder="Arroz" formControlName="title" required>
+        <mat-error class="error-message" *ngIf="productForm.invalid">{{getErrorMessage()}} Nombre del producto</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-view-validate" appearance="outline">
+        <mat-label>Descripcion del producto</mat-label>
+        <input matInput placeholder="250 Gr" formControlName="description" required>
+        <mat-error class="error-message" *ngIf="productForm.invalid">{{getErrorMessage()}} Descripcion del producto</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-view-validate" appearance="outline">
+        <mat-label>Subir imagen o copiar</mat-label>
+        <input matInput placeholder="Arroz.png" formControlName="image" required>
+        <mat-error class="error-message" *ngIf="productForm.invalid">{{getErrorMessage()}} Imagen del producto</mat-error>
+      </mat-form-field>
+
+      <div>
+        <button class="separated-product" type="submit" mat-raised-button>Guardar</button>
+        <button class="separated-product" type="reset" mat-raised-button>Limpiar</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

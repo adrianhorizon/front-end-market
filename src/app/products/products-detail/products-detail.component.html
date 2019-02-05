@@ -1,0 +1,21 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<div class="product-details" *ngIf="!loading">
+  <div class="card-detail">
+    <div class="size-image">
+      <img class="image-separated" src="https://s3.amazonaws.com/kitwiissy/{{product.image}}">
+    </div>
+    <div class="card-header">
+      <h1 class="style-header">{{ product.name}}</h1>
+      <p>{{ product.price }}</p>
+      <p>{{ product.description }}</p>
+      <button *ngIf="isLoggedIn()" mat-raised-button color="primary" [routerLink]="['/products/edit', product._id]">Editar</button>
+      <br>
+      <button class="button-card" mat-raised-button (click)="addToCart(product)">Agregar al carrito</button>
+    </div>
+  </div>
+  <a [routerLink]="['/']" class="add-detail">
+    <i class="fas fa-chevron-circle-left fa-4x"></i>
+  </a>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,61 @@
+<mat-progress-bar *ngIf="signupProcess" mode="indeterminate"></mat-progress-bar>
+<div class="signup-view">
+  <mat-card>
+    <mat-card-content>
+      <form novalidate [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nombres y Apellidos</mat-label>
+          <input matInput placeholder="Nombres y Apellidos" formControlName="firstName" required>
+          <mat-error class="error-message" *ngIf="signupForm.invalid">{{getErrorMessage()}} nombre y apellido</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre de Usuario</mat-label>
+          <input matInput placeholder="Nombre de Usuario" formControlName="userName" required>
+          <mat-error class="error-message" *ngIf="signupForm.invalid">{{getErrorMessage()}} usuario</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Celular</mat-label>
+          <input matInput placeholder="Celular" type="number" formControlName="phone" required>
+          <mat-error class="error-message" *ngIf="signupForm.invalid">{{getErrorMessage()}} celular</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Correo electronico</mat-label>
+          <input matInput placeholder="Correo electronico" formControlName="email" required>
+          <mat-error class="error-message" *ngIf="signupForm.invalid">{{getErrorMessage()}} email</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input matInput placeholder="Contraseña" formControlName="password" required [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          <mat-error class="error-message" *ngIf="signupForm.invalid">{{getErrorMessage()}} contraseña</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Confirmar contraseña</mat-label>
+          <input matInput placeholder="Confirmar contraseña" type="password" formControlName="passwordSegurity"
+            required>
+          <mat-error class="error-message" *ngIf="signupForm.invalid">{{getErrorMessage()}} contraseña</mat-error>
+        </mat-form-field>
+        <div class="button-row">
+          <button class="button_register" type="submit" color="primary" mat-raised-button>Registrarse</button>
+          <button class="button_register" type="reset" color="warn" mat-raised-button>Limpiar</button>
+        </div>
+        <div class="button_col">
+          <p class="text-link">¿Tienes una cuenta?
+            <a class="link-text" [routerLink]="['/signin']">Ingresa aquí</a>
+          </p>
+          <p class="text-link">Al hacer clic, aceptas haber leido
+            <a class="link-text" [routerLink]="['/']">Términos y Condiciones de Uso</a>
+            y las
+            <a class="link-text" [routerLink]="['/']">Políticas de Habeas Data</a>
+          </p>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

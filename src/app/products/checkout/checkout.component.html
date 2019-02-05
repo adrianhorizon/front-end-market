@@ -1,0 +1,34 @@
+<div class="container-checkout" *ngIf="cartProducts.length > 0">
+  <mat-card class="container-cart">
+    <ul>
+      <h2>Resumen</h2>
+      <li *ngFor="let product of cartProducts">
+        <div class="style-div">
+          <span>{{ product.name }}</span><br>
+          <small>{{ product.price }}</small><br>
+          <a (click)="removeCartProduct(product)">Eliminar</a><br>
+        </div>
+      </li>
+      <div>
+        <h2>Metodo de pago</h2>
+        <mat-radio-group class="radio-group" [(ngModel)]="favoriteSeason">
+          <mat-radio-button class="radio-button" *ngFor="let season of seasons" [value]="season">
+            {{season}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div class="selected-value">Elegiste: {{favoriteSeason}}</div>
+      </div>
+      <div>
+        <h4>Subtotal: {{totalValue | currency:'COP':'symbol-narrow' }}</h4>
+        <p>Domicilio: {{totalValueDomi | currency:'COP':'symbol-narrow' }}</p>
+        <small>Total: {{totalValueDomi + totalValue | currency:'COP':'symbol-narrow' }}</small>
+      </div>
+    </ul>
+    <button mat-raised-button class="button" (click)="confirmPay()">Hacer pedido</button>
+  </mat-card>
+</div>
+<div class="container" *ngIf="cartProducts.length === 0">
+  <app-products-not-found [title]="messageTitle" [description]="messageDescription"></app-products-not-found>
+</div>
+
+<app-footer *ngIf="cartProducts.length === 0"></app-footer>

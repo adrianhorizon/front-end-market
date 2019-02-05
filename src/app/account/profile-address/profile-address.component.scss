@@ -1,0 +1,110 @@
+@import '../../../../src/sass/variables';
+@import '../../../../src/sass/mixins';
+
+mat-card { 
+  @include profile-mat-card; 
+}
+
+.section {
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+}
+
+.col {
+  display: block;
+  float: left;
+  margin: 1% 0 1% 1.8%;
+}
+
+.col:first-child { margin-left: 50; }
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+
+.group:after { clear: both; }
+.group { zoom: 1; }  
+.span_2_of_2 { width: 100%; }
+.span_1_of_2 { width: 70%; }
+.span_1_of_2:first-child { width: 25%; }
+
+@media only screen and (max-width: $layout-xs) {
+  .col { margin: 1% 0 1% 0%; }
+}
+
+@media screen and (max-width: $layout-xs) {
+  .span_2_of_2, .span_1_of_2 { width: 100%; }
+  .span_1_of_2:first-child { width: 100%; }
+  .input-form { width: 100%; }
+  mat-card { height: auto; }
+}
+
+@media screen and (min-width: $layout-xs) {
+  .input-form {
+    width: 45%;
+    float: left;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .button-row { width: 100%; }
+}
+
+@media screen and (min-width: $layout-mat) {
+  .input-form {
+    width: 45%;
+    float: left;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+}
+
+.button-div {
+  width: 100%;
+  float: left;
+}
+
+.width-input {
+  width: 100%;
+  padding: 15px 10px;
+}
+
+.text-title {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.profile-button {
+  @include button-custom;
+}
+
+.profile-set {
+  position: absolute;
+  right: 18px;
+  top: 40%;
+  color: $colorInstagram;
+}
+
+input { font-weight: 500; }
+
+input::placeholder {
+  color: $colorPrimary;
+  opacity: 0.5;
+}
+
+mat-divider { border-top: 1px dashed #8c8b8b; }
+
+form {
+  display: inline-block;
+  zoom: 1;
+  width: 100%;
+}

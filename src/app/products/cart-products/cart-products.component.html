@@ -1,0 +1,32 @@
+<div class="card-container" *ngIf="cartProducts.length > 0">
+  <div class="section group">
+    <div class="col span_1_of_2">
+      <app-cart-quantity [products]="cartProducts"></app-cart-quantity>
+    </div>
+    <div class="col span_1_of_2">
+      <div class="card-container container-responsive">
+        <div class="card" *ngFor="let product of cartProducts">
+          <div class="size-image" [routerLink]="['/products/detail', product._id]">
+            <img class="image-separated" src="https://s3.amazonaws.com/kitwiissy/{{product.image}}">
+          </div>
+          <div class="div-separated" [routerLink]="['/products/detail', product._id]">
+            <a class="font-parrafe">
+              {{ product.name }}
+            </a>
+            <p class="parrafe-style">{{ product.price }}</p>
+            <p class="description-style">{{ product.description }}</p>
+          </div>
+          <div class="button-row">
+            <button mat-raised-button class="button" (click)="addToCart(product)">Agregar</button>
+            <button mat-raised-button class="button-warning" (click)="removeCartProduct(product)">Remover</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="cartProducts.length === 0">
+    <app-products-not-found [title]="messageTitle" [description]="messageDescription"></app-products-not-found>
+  </div>
+
+<app-footer></app-footer>

@@ -1,0 +1,41 @@
+<div class="edit-view">
+
+  <mat-card>
+    <mat-card-content>
+      <form>
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre del producto</mat-label>
+          <input matInput placeholder="Nombre del producto" value="{{ name }}" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Descripcion</mat-label>
+          <input matInput placeholder="Descripcion" value="{{ description}}" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Precio</mat-label>
+          <input matInput placeholder="Precio" value="{{ price }}" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Imagen</mat-label>
+          <input matInput placeholder="Imagen" value="{{ image }}" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Fecha de creacion</mat-label>
+          <input matInput placeholder="Fecha de creacion" value="{{ date | date }}" required>
+        </mat-form-field>
+
+        <div class="button-row">
+          <button type="submit" class="button-edit" mat-raised-button style="background-color: #00aaff;">Actualizar
+            producto</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <a [routerLink]="['/']" class="add-edit">
+    <i class="fas fa-chevron-circle-left fa-4x"></i>
+  </a>
+</div>

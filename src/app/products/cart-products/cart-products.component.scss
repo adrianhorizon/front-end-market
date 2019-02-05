@@ -1,0 +1,164 @@
+@import '../../../../src/sass/variables';
+@import '../../../../src/sass/mixins';
+
+.card-container {
+  display: grid;
+  padding: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(252px, 1fr));
+  grid-gap: 16px;
+
+  .size-image {
+    width: 40%;
+    float: left;
+  }
+
+  .image-separated {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  .card {
+    @include card-style-product;
+    cursor: pointer;
+
+    &:hover .button {
+      background-color: $colorHover;
+      border: none;
+      color: lighten($colorHover, 60%);
+      transition: 0.2s all ease;
+    }
+
+    &:hover .button-warning {
+      background-color: $D;
+      border: none;
+      color: lighten($D, 60%);
+      transition: 0.2s all ease;
+    }
+
+    &:hover .size-image {
+      opacity: 0.5;
+    }
+  }
+
+  .card .button {
+    align-self: end;
+  }
+
+  .font-parrafe {
+    font-size: 25px;
+    color: $colorGray;
+  }
+
+  .parrafe-style {
+    margin-top: 8px;
+    color: $colorWrey;
+  }
+
+  .description-style {
+    color: $colorWrey;
+    margin-top: 8px;
+    margin-bottom: 24px;
+  }
+
+  .div-separated {
+    text-align: center;
+    position: relative;
+    top: 45%; 
+    transform: perspective(1px) translateY(-50%);
+
+    &:hover .font-parrafe {
+      color: $colorPrimary;
+    }
+
+    &:hover .parrafe-style {
+      color: $hover_link;
+    }
+  }
+
+  .font-description {
+    font-size: 15px;
+    color: $U;
+  }
+
+  .button {
+    border-radius: 10px;
+    color: $colorHover;
+    box-shadow: none;
+    width: 49%;
+    height: 36px;
+  }
+
+  .button-warning {
+    border-radius: 10px;
+    box-shadow: none;
+    color: $D;
+    width: 49%;
+    height: 36px;
+  }
+
+  .button-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .section {
+    clear: both;
+    margin: 0px;
+    grid-gap: 1vw;
+    padding: 1vw;
+  }
+
+  .col {
+    display: block;
+    float: left;
+    margin: 1% 0 1% 1.8%;
+  }
+
+  .col:first-child { margin-left: 50; }
+
+  .group:before,
+  .group:after {
+    content: "";
+    display: table;
+  }
+
+  .group:after { clear: both; }
+  .group { zoom: 1; }
+
+  .span_2_of_2 { width: 100%; }
+  .span_1_of_2 { width: 70%; }
+
+  .span_1_of_2:first-child {
+    width: 25%;
+  }
+
+  @media only screen and (max-width: $layout-xs) {
+
+    .col { margin: 1% 0 1% 0%; }
+  }
+
+  @media screen and (max-width: $layout-xs) {
+
+    .span_2_of_2,
+    .span_1_of_2 {
+      width: 100%;
+    }
+
+    .span_1_of_2:first-child { width: 100%; }
+  }
+
+  @media screen and (min-width: $layout-xs){
+    .container-responsive { width: 100%; }
+  }
+      
+  }

@@ -1,0 +1,45 @@
+@import '../../../../src/sass/mixins';
+@import '../../../../src/sass/variables';
+.edit-view {
+  @media screen and (min-width: $layout-xs) {
+    @include mat-panel-xs;
+  }
+  @media screen and (min-width: $layout-mat) {
+    @include mat-panel-xs;
+  }
+  .add-edit {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 0px 0px 5px 5px;
+    color: $B;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
+  .button-edit {
+    width: 100%;
+    height: 36px;
+    color: white;
+    margin: 0 auto;
+  }
+  mat-form-field {
+    color: $blueWarn;
+    font-weight: 600; 
+  }
+  input {
+    color: $blueWarn;
+    font-weight: 600;
+  }
+  form {
+    @include form-responsive;
+  }
+  mat-card{
+    margin-bottom: 50px;
+  }
+  a:hover {
+    color: $d;
+  }
+}

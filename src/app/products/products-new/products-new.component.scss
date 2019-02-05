@@ -1,0 +1,42 @@
+@import '../../../../src/sass/variables';
+@import '../../../../src/sass/mixins';
+
+.product-view {
+  @media screen and(min-width: $layout-xs) {
+    @include mat-panel-xs;
+    .separated-product {
+      margin: 8px;
+      width: 46%;
+      border-radius: 5px;
+    }
+  }
+
+  @media screen and (max-width: $layout-xs) {
+    @include mat-panel-xs;
+    .separated-product {
+      margin: 10px;
+      width: 95%;
+      border-radius: 5px;
+    }
+  }
+
+  mat-form-field {
+    font-weight: 400;
+    width: 95%;
+    margin-left: 10px;
+    color: $blueGradients;
+  }
+
+  mat-card { margin-bottom: 24px; } 
+
+  .error-message {
+    font-size: 10px;
+    color: $D;
+  }
+
+  .form-view-validate { margin-bottom: 10px; }
+
+  form { @include form-responsive; }
+  
+  a:hover { color: $d; }
+} 

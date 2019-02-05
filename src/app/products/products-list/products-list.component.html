@@ -1,0 +1,34 @@
+<div class="custom-pipe">
+  <label class="custom-select">Filtrar por estrellas:
+    <select [(ngModel)]="selectedStars">
+      <option disabled [ngValue]="undefined">--</option>
+      <option *ngFor="let brand of brands" [ngValue]="brand">{{brand}} Estrellas</option>
+    </select>
+  </label>
+  <br><br>
+  <label class="custom-select">Filtrar por disponibilidad:
+    <select [(ngModel)]="selectedBoolean">
+      <option disabled [ngValue]="undefined" selected>--</option>
+      <option [ngValue]="true">Disponible</option>
+      <option [ngValue]="false">No disponible</option>
+    </select>
+  </label>
+</div>
+<div class="card-container">
+  <div class="card" *ngFor="let product of products | searchAvailable: selectedBoolean | filterStartCategories: selectedStars">
+    <div class="size-image" [routerLink]="['/products/detail', product._id]">
+      <img class="image-separated" src="https://s3.amazonaws.com/kitwiissy/{{product.image}}">
+    </div>
+    <div class="div-separated" [routerLink]="['/products/detail', product._id]">
+      <a class="font-parrafe">
+        {{ product.name }}
+      </a>
+      <p class="parrafe-style">{{ product.price }}</p>
+      <p class="description-style">{{ product.description }}</p>
+    </div>
+    <div *ngFor="let item of stars">
+      <mat-icon *ngIf="item.id == product.stars">{{item.icon}}</mat-icon>
+    </div>
+    <button mat-raised-button class="button" (click)="addToCart(product)">Agregar</button>
+  </div>
+</div>

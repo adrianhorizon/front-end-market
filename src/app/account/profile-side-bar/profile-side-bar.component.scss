@@ -1,0 +1,59 @@
+@import '../../../../src/sass/variables';
+@import '../../../../src/sass/mixins';
+
+.side-main {
+  mat-card {
+    @include profile-mat-card;
+  }
+  ul li {
+    list-style-type: none; 
+  }
+  li { 
+    height: 65px;
+  }
+
+  h3 {
+    color: $colorPrimary;
+  }
+  .m-linkitem {
+    a {
+      -o-transition: all .2s linear;
+      -ms-transition: all .2s linear;
+      -moz-transition: all .2s linear;
+      -webkit-transition: all .2s linear;
+      transition: all .2s linear;
+      color: $colorFontPricinpal;
+      font-size: 16px;
+      text-decoration: none;
+      padding-bottom: 8px;
+      background-image: linear-gradient(to right, #5b50fc 0%, #ba70fd 100%);
+      background-size: 0px 2px;
+      background-repeat: no-repeat;
+      background-position: left 85%;
+      text-shadow: 0;
+
+      &:hover {
+        background-size: 100% 2px;
+      }
+    }
+  }
+  @keyframes backgroundGradient {
+    0% { background-position: 50% 0% }
+    50% { background-position: 50% 100% }
+    100% { background-position: 50% 0% }
+  }
+
+  @keyframes loadBounce {
+    0% { transform: translate(-50%, -50%) scale(0); }
+    40% { transform: translate(-50%, -50%) scale(1.2); }
+    60% { transform: translate(-50%, -50%) scale(1); }
+    80% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+  }
+  @media screen and (max-width:$layout-xs) {
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+  }
+}

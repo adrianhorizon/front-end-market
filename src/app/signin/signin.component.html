@@ -1,0 +1,35 @@
+<mat-progress-bar *ngIf="loginInProcess" mode="indeterminate"></mat-progress-bar>
+<div class="login-view">
+  <mat-card>
+    <mat-card-header>
+      <a [routerLink]="['/']">
+        <img src="https://angular.io/assets/images/logos/angular/angular_whiteTransparent.png" class="header-image">
+      </a>
+    </mat-card-header>
+
+    <form novalidate [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Email o Usuario</mat-label>
+        <input class="text-firstName" matInput placeholder="Email o Usuario" formControlName="email" required>
+        <mat-error class="error-message" *ngIf="signinForm.invalid">{{getErrorMessage()}} email</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput placeholder="Contraseña" formControlName="password" [type]="hide ? 'password' : 'text'"
+          required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <mat-error class="error-message" *ngIf="signinForm.invalid">{{getErrorMessage()}} Contraseña</mat-error>
+      </mat-form-field>
+
+      <button class="button-register" type="submit" mat-raised-button>INICIAR SESIÓN</button>
+
+      <div class="button-row">
+        <p class="text-link">¿Aun no tienes cuenta?
+          <a class="link-text" [routerLink]="['/signup']">Resgístrate aquí</a>
+        </p>
+        <a class="link-text" [routerLink]="['/']">¿Olvidaste tu contraseña?</a>
+      </div>
+    </form>
+  </mat-card>
+</div>

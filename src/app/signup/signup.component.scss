@@ -1,0 +1,76 @@
+@import '../../../src/sass/mixins';
+@import '../../../src/sass/variables';
+.signup-view {
+  @media screen and (min-width: $layout-xs) {
+    margin: 0 auto;
+    width: 40%;
+    box-sizing: border-box;
+  }
+  mat-card {
+    @media(min-width: $layout-sm) {
+      @include media-card;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      box-sizing: border-box;
+    }
+  }
+  .header-image {
+    @include signin-logo;
+  }
+  .button-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  .button-col {
+    margin-top: 24px;
+    justify-content: center;
+    text-align: center;
+  }
+  mat-form-field {
+    color: $blueWarn;
+    margin-bottom: 10px;
+  }
+  mat-form-field:nth-child(1) {
+    margin-top: 24px;
+  }
+ .button-register {
+  width: 48%;
+  height: 36px;
+  color: white;
+  margin: 0 auto;
+ }
+ .text-link {
+  color: $colorWrey;
+ }
+ .link-text {
+   color: $blueWarn;
+   opacity: 0.8;
+   text-decoration: none;
+    &:hover {
+      color: $hover_link;
+    }
+    &:active {
+      color: $hover_active;
+    }
+    &:link {
+      color: $blueGradients;
+    }
+ }
+ .link-text:nth-child(1) {
+   &:hover {
+     text-decoration: underline;
+   }
+ }
+  .error-message {
+    font-size: 10px;
+    color: $D;
+  }
+  form {
+    @include form-responsive;
+  }
+
+}

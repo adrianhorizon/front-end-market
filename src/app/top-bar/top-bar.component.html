@@ -1,0 +1,117 @@
+<div class="top-view container" [class.is-mobile]="mobileQuery.matches">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <button class="men-responsive" mat-icon-button (click)="snav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <a [routerLink]="['/']">
+        <img src="https://angular.io/assets/images/logos/angular/angular_whiteTransparent.png" class="header-image">
+      </a>
+      <span class="space"></span>
+      <form>
+        <input #productSearch matInput placeholder="Busca cualquier producto" aria-label="Busca cualquier producto"
+          [matAutocomplete]="auto" class="search-input men-responsive" matTooltip="Digita para buscar cualquier producto"
+          [formControl]="ControlProduct" onfocus="this.value=''">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+            <div [routerLink]="['products/detail', option._id]">
+              <a style="text-decoration: none; color: #9e9e9e;">
+                <img aria-hidden style="vertical-align: middle; margin-right: 8px;" src="https://s3.amazonaws.com/kitwiissy/{{option.image}}"
+                  class="option-img" width="24">
+                <span>{{ option.name }}</span> | <small>Precio: {{option.price}}</small>
+              </a>
+            </div>
+          </mat-option>
+        </mat-autocomplete>
+      </form>
+      <span class="space"></span>
+      <button class="padding-button" mat-icon-button [routerLink]="['/products/cart-items']">
+        <i class="fas fa-cart-plus fa-sm"></i>
+        <span matBadge="{{productService.navbarCartCount}}" matBadgeOverlap="false"></span>
+      </button>
+      <button mat-icon-button *ngIf="!isLoggedIn()" [matMenuTriggerFor]="menu" class="menu-responsive">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item *ngIf="!isLoggedIn()" [routerLink]="['/signin']">
+          {{ sessionInit }}
+        </button>
+        <button mat-menu-item *ngIf="!isLoggedIn()" [routerLink]="['/signup']">
+          {{ registerTitle }}
+        </button>
+      </mat-menu>
+      <button mat-button *ngIf="!isLoggedIn()" [routerLink]="['/signin']" class="men-responsive">
+        {{ sessionInit }}
+      </button>
+      <div *ngIf="isLoggedIn()">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <div mat-card-avatar class="img-res"></div>
+        </button>
+        <mat-menu #menu="matMenu" [overlapTrigger]="false">
+          <button mat-menu-item [routerLink]="['/account/profile']">
+            <mat-icon>account_circle</mat-icon>
+            <small>{{ fullName() }} {{ profileTitle }}</small>
+          </button>
+          <button mat-menu-item [routerLink]="['/products/new']">
+            <mat-icon><i class="fas fa-cart-plus fa-sm"></i></mat-icon>
+            <small>{{ addProducts }}</small>
+          </button>
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <small>{{ closeSession }}</small>
+          </button>
+        </mat-menu>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="container-side-nav">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" fixedTopGap="56" class="sidenav-container">
+      <mat-accordion #productAccordion="matAccordion" multi="true">
+        <mat-expansion-panel *ngFor="let items of categories">
+          <mat-expansion-panel-header [collapsedHeight]="'48px'" [expandedHeight]="'48px'">
+            <mat-panel-title class="style-font-color">
+              {{ items.name }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <ng-template matExpansionPanelContent>
+            <mat-expansion-panel *ngFor="let item of items['sublevels']">
+              <mat-expansion-panel-header [collapsedHeight]="'48px'" [expandedHeight]="'48px'">
+                <small class="style-font-color">{{item.name}}</small>
+              </mat-expansion-panel-header>
+              <mat-expansion-panel *ngFor="let it of item['sublevels']">
+                <mat-expansion-panel-header [collapsedHeight]="'48px'" [expandedHeight]="'48px'">
+                  <small class="style-font-color">{{it.name}}</small>
+                </mat-expansion-panel-header>
+                <ul class="style-ul" *ngFor="let product of products; let first = first; let last = last">
+                  <li *ngIf="it.id === product.sublevel_id">
+                    <a class="style-links" [routerLink]="['/products/detail', product._id]">{{ product.name }}</a>
+                    <form *ngIf="last">
+                      <input #productSearch matInput placeholder="Busca" aria-label="Busca" [matAutocomplete]="auto"
+                        class="search-input-filter" [formControl]="ControlProduct" onfocus="this.value=''">
+                      <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+                          <p [routerLink]="['products', option._id]">
+                            <img class="option-img" aria-hidden src="https://s3.amazonaws.com/kitwiissy/{{product.image}}"
+                              height="25">
+                            <span>{{ option.name }}</span> | <small>Precio: {{option.price}}</small>
+                          </p>
+                        </mat-option>
+                      </mat-autocomplete>
+                    </form>
+                  </li>
+                </ul>
+              </mat-expansion-panel>
+            </mat-expansion-panel>
+
+          </ng-template>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -1,0 +1,13 @@
+<div class="side-main">
+  <mat-card>
+    <h3>{{ name }}</h3>
+    <ul class="m-linkitem">
+      <li *ngFor="let menu of profileMenu">
+        <a routerLink="{{ menu.url }}">
+          {{ menu.title }}
+          <mat-icon>{{ menu.icon }}</mat-icon>
+        </a>
+      </li>
+    </ul>
+  </mat-card>
+</div>

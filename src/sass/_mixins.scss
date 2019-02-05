@@ -1,0 +1,223 @@
+@mixin space-span {
+  flex: 1 1 auto;
+}
+
+@mixin logo-market {
+  width: 126px;
+  height: 55px;
+  margin-bottom: 8px;
+}
+
+@mixin none-display {
+  display: none;
+}
+
+@mixin login-container {
+  margin: 0 auto;
+  margin-top: 24px;
+  margin-bottom: 24px;  
+  box-sizing: border-box;
+}
+
+
+@mixin display-block {
+  display: block;
+}
+
+@mixin top-logo {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+}
+
+@mixin header-logo {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 90px;
+  height: auto;
+  cursor: pointer;
+}
+
+@mixin signin-logo {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 35px;
+  height: auto;
+  cursor: pointer;
+}
+
+@mixin header-responsive {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 35px;
+  cursor: pointer;
+}
+
+@mixin divider-card {
+  margin-top: 20px !important;
+  margin: 0 auto;
+  max-width: 700px;
+  width: 100%;
+}
+
+@mixin divider-div {
+  margin-top: 20px !important;
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+}
+
+@mixin a-none {
+  text-decoration: none;
+}
+
+@mixin media-card {
+  min-width: 450px;
+  min-height: 290px;
+}
+
+@mixin form-responsive {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@mixin mat-side-xs {
+  margin-top: 20px !important;
+  margin: 0 auto;
+  max-width: 550px;
+  width: 100%;
+}
+
+@mixin mat-side-mat {
+  left: 20px;
+  margin-top: 20px;
+  position: absolute;
+  width: 240px;
+}
+
+@mixin mat-panel-xs {
+  margin-top: 20px !important;
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
+}
+
+@mixin add-icon-style {
+  position: fixed;
+  padding: 0px 0px 5px 5px;
+  color: $colorSearch;
+  -o-transition: .5s;
+  -ms-transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+@mixin mat-panel-mat {
+  position: absolute;
+  left: 20px;
+  width: 300px;
+  height: 100%;
+}
+
+@mixin card-panel {
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+  display: block;
+  position: relative;
+  padding: 28px;
+  border-radius: 10px;
+}
+
+@mixin button-custom {
+  color: #fff;
+    background-image: linear-gradient(to right, #5b50fc 0%, #ba70fd 100%);
+    transition: .3s;
+    line-height: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 15px 65px;
+    margin-top: 20px;
+    font-weight: 600;
+    min-width: 254px;
+}
+
+@mixin profile-mat-card {
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+  border-radius: 5px;
+}
+
+@mixin centre($axis: "both") {
+  position: absolute;
+  @if $axis == "y" {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  @if $axis == "x" {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+  @if $axis == "both" {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-51%, -50%);
+    -moz-transform: translate(-51%, -50%);
+    -ms-transform: translate(-51%, -50%);
+    -o-transform: translate(-51%, -50%);
+    transform: translate(-51%, -50%);
+  }
+}
+
+@mixin font-size($sizeValue: 1.6, $lineHeight: 2.4) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+  line-height: ($lineHeight * 10) + px;
+}
+
+@mixin fontawesome {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin card-style-product {
+  border-radius: 16px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(36, 37, 38, 0.08);
+  &:hover {
+    box-shadow: 5px 12px 20px rgba(36,37,38,0.13);
+  }
+  &:active {
+    box-shadow: 5px 12px 20px rgba(36,37,38,0);
+  }
+}
+
+@mixin card-style-product-image {
+  width: 40%;
+  align-items: center;
+  margin: 0 auto;
+}

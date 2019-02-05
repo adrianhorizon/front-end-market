@@ -1,0 +1,60 @@
+@import '../../../../src/sass/variables';
+@import '../../../../src/sass/mixins';
+.product-details {
+  margin-top: 24px;
+  @media screen and(max-width: $layout-xs) {
+    .add-detail { display: none; }
+
+    .card-detail {
+      @include card-style-product;
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+  
+  @media screen and(min-width: $layout-xs) {
+    .add-detail {
+      @include add-icon-style;
+      bottom: 30px;
+      right: 30px;
+    }
+
+    .card-detail {
+      @include card-style-product;
+      width: 40%;
+      margin: 0 auto;
+    }
+  }
+
+  .size-image {
+    @include card-style-product-image;
+    float: left; 
+   }
+   
+   .image-separated { 
+     margin-top: 24px; 
+     margin-bottom: 24px;
+    }
+
+    .style-header {
+      color: $colorWrey;
+      font-weight: 400;
+    }
+
+    .button-card {
+      margin-top: 16px;
+      background-color: $colorSec;
+      color: $colorSearch;
+      &:hover {
+        background-color: $U;
+      }
+    }
+
+  .card-header {
+    text-align: center;
+  }
+  
+  mat-icon { color: $colorPlaceholder; }
+
+  a:hover { color: $colorPlaceholder; }
+}

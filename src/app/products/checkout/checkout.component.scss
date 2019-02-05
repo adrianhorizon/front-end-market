@@ -1,0 +1,73 @@
+@import '../../../../src/sass/variables';
+@import '../../../../src/sass/mixins';
+
+.container-checkout {
+  margin-top: 16px;
+
+  @media screen and (max-width: $layout-xs) {
+    .container-cart {
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width: $layout-sm) {
+    .container-cart {
+      width: 50%;
+    }
+  }
+
+  .container-cart {
+    @include card-style-product;
+    background-color: white;
+    margin: 0 auto;
+    margin-bottom: 24px;
+    &:hover .button {
+      background-color: $colorHover;
+      border: none;
+      color: lighten($colorHover, 60%);
+      transition: 0.2s all ease;
+    }
+  }
+
+  .style-div {
+    padding: 5px 24px;
+  }
+
+  .radio-group {
+    display: inline-flex;
+    flex-direction: column;
+  }
+  
+  .radio-button {
+    margin: 5px;
+  }
+  
+  .selected-value {
+    margin: 15px 0;
+  }
+
+  .button {
+    border-radius: 10px;
+    color: $colorHover;
+    height: 36px;
+    width: 100%;
+  }
+
+  ul li {
+    list-style-type: none;
+  }
+
+  h2, h4, small, p {
+    color: $colorGray;
+    font-weight: 400;
+  }
+
+  a {
+    color: $D;
+    cursor: pointer;
+    a:hover{
+      color: $colorSec;
+    }
+  }
+
+}
