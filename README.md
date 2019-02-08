@@ -34,6 +34,6 @@
  1. docker local the next steps
   - npm run build or ng build --prod
   - docker image build -t market .
-  - docker run -p 3000:80 --rm market
+  - docker run -p 4200:80 --rm market
  
 this step two is reference create and generate container name market. Third step is run localhost machine is port 3000 example localhost:3000
