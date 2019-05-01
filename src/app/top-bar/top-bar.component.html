@@ -1,5 +1,5 @@
 <div class="top-view container" [class.is-mobile]="mobileQuery.matches">
-  <mat-toolbar>
+  <mat-toolbar *ngIf="router.url != '/signin'">
     <mat-toolbar-row>
       <button class="men-responsive" mat-icon-button (click)="snav.toggle()">
         <mat-icon>menu</mat-icon>

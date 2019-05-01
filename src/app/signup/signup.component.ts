@@ -9,7 +9,7 @@ import { UserNew } from '../shared/models/user-new.model';
 })
 export class SignupComponent implements OnInit {
 
-  signupProcess: boolean = false;
+  signupProcess = false;
   error = new FormControl('', [Validators.required, Validators.email]);
   signupForm: FormGroup;
   hide = true;
@@ -43,8 +43,6 @@ export class SignupComponent implements OnInit {
         .subscribe(
           this.authService.login
         );
-      } else {
-        
       }
     }
   }

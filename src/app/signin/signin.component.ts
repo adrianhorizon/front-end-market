@@ -11,7 +11,7 @@ import { User } from '../shared/models/user.model';
 })
 export class SigninComponent implements OnInit {
 
-  loginInProcess: boolean = false;
+  loginInProcess = false;
   email = new FormControl('', [Validators.required, Validators.email]);
   signinForm: FormGroup;
   hide = true;
@@ -22,10 +22,10 @@ export class SigninComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.validateForm()
+    this.validateForm();
   }
 
-  validateForm(){
+  validateForm() {
     this.signinForm = new FormGroup({
       email: new FormControl(null, [
           Validators.required,
@@ -37,7 +37,7 @@ export class SigninComponent implements OnInit {
 
   onSubmit() {
     this.loginInProcess = false;
-    
+
     if (this.signinForm.valid) {
       this.loginInProcess = true;
       const { email, password } = this.signinForm.value;

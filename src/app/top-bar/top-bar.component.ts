@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, OnDestroy, Input, OnInit, ViewChild} from '@angular/core';
 import { FormControl } from '../../../node_modules/@angular/forms';
-import {MediaMatcher} from '@angular/cdk/layout';
+import { MediaMatcher } from '@angular/cdk/layout';
 import { AuthService } from '../shared/services/auth.service';
 import { ProductService } from '../shared/services/products.service';
 import { Product } from '../shared/models/products.model';
@@ -9,19 +9,20 @@ import { Categories } from '../shared/models/categories.model';
 import { map, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { MatAccordion } from '@angular/material';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.scss']
 })
 
-export class TopBarComponent implements OnInit,OnDestroy {
+export class TopBarComponent implements OnInit, OnDestroy {
 
-  sessionInit = "Iniciar sesión";
-  registerTitle = "Registrate";
-  addProducts = "Agregar productos";
-  closeSession = "Cerrar Sesion";
-  profileTitle = "(Mi perfil)";
+  sessionInit = 'Iniciar sesión';
+  registerTitle = 'Registrate';
+  addProducts = 'Agregar productos';
+  closeSession = 'Cerrar Sesion';
+  profileTitle = '(Mi perfil)';
 
   @Input() sort = '-createdAt';
   @ViewChild('productAccordion') myPanels: MatAccordion;
@@ -35,9 +36,10 @@ export class TopBarComponent implements OnInit,OnDestroy {
   private _mobileQueryListener: () => void;
 
   constructor(
-    private authService: AuthService, 
+    public router: Router,
+    private authService: AuthService,
     private productService: ProductService,
-    private categoriesService: CategoriesService, 
+    private categoriesService: CategoriesService,
     changeDetectorRef: ChangeDetectorRef, media: MediaMatcher
     ) {
 
@@ -74,14 +76,14 @@ export class TopBarComponent implements OnInit,OnDestroy {
     this.productService
       .getProducts(this.sort)
       .subscribe(
-        (products: Product[]) => this.products = products 
+        (products: Product[]) => this.products = products
       );
   }
 
-  getCategories(){
+  getCategories() {
     this.categoriesService.getCategories().subscribe(
       (categories: Categories[]) => this.categories = categories
-    )
+    );
   }
 
   isLoggedIn() {
